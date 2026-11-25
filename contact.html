@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Me | Jasina Fathima</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="contact-header">
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+
+            <div class="logo">
+                <span>JF</span>
+                <div>
+                    <h2>Jasina Fathima</h2>
+                    <p>PORTFOLIO</p>
+                </div>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+
+        <h1>GET IN TOUCH</h1>
+
+        <p class="contact-description">
+              I'm always eager to learn, grow and connect with people
+                in technology. Feel free to contact me anytime.
+        </p>
+
+        <div class="contact-container">
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+
+                <h2>Let's Connect!</h2>
+
+                <p>
+                    Thank you for visiting my portfolio.
+                    You can reach me through the details below.
+                </p>
+
+                <div class="contact-item">
+                    <span>📧</span>
+                    <div>
+                        <h3>Email</h3>
+                        <p>jas.fathima137@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <span>📍</span>
+                    <div>
+                        <h3>Location</h3>
+                        <p>India</p>
+                    </div>
+                </div>
+
+             <div class="contact-item">
+                <span>💼</span>
+                <div>
+                     <h3>LinkedIn</h3>
+                     <a href="https://www.linkedin.com/in/jasinafathima-j-a56b32417?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                     target="_blank"
+                     class="linkedin-link">
+                     Visit My LinkedIn Profile →
+                    </a>
+                </div>
+             </div>
+
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+
+                <h2>Send Me a Message</h2>
+                <form id="contact-form">
+                    <input type="text"
+                       name="from_name"
+                       placeholder="Your Name"
+                       required>
+                    <input type="email"
+                       name="from_email"
+                       placeholder="Your Email"
+                       required>
+                    <input type="text"
+                       name="subject"
+                       placeholder="Subject"
+                       required>
+                    <textarea name="message"
+                      placeholder="Write your message..."
+                      rows="5"
+                      required></textarea>
+                    <button type="submit">Send Message →</button>
+                    <p id="form-status"></p>
+
+                </form>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+    emailjs.init({
+        publicKey: "X-q9GI1MnUz_wHZRs"
+    });
+
+    document.getElementById("contact-form")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const form = this;
+        const status = document.getElementById("form-status");
+        const button = form.querySelector("button");
+
+        button.disabled = true;
+        button.textContent = "Sending...";
+
+        emailjs.sendForm(
+            "service_7mp2cyl",
+            "template_07t6tqs",
+            form
+        )
+        .then(function() {
+
+            status.textContent = "Message sent successfully!";
+            status.style.color = "green";
+
+            form.reset();
+
+        })
+        .catch(function(error) {
+
+            status.textContent = "Message failed. Please try again.";
+            status.style.color = "red";
+
+            console.error("EmailJS error:", error);
+
+        })
+        .finally(function() {
+
+            button.disabled = false;
+            button.textContent = "Send Message →";
+
+        });
+
+    });
+</script>
+</body>
+</html>
