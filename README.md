@@ -21,4 +21,4 @@ technical skills, projects and contact information.
 - Contact page
 
 ## Live Website
-https://github.com/JASI0713/my--personal-portfolio
+C:\Users\Jasina fathima J\OneDrive\Desktop\My Portfolio\index.html
