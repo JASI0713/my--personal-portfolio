@@ -21,5 +21,4 @@ technical skills, projects and contact information.
 - Contact page
 
 ## Live Website
-## Live Website
-https://jasi0713.github.i0/my--personal-portfolio/
+ https://jasi0713.github.io/my--personal-portfolio/
